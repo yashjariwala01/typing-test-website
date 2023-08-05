@@ -61,13 +61,13 @@ const orange = {
     typeBoxText : 'red'
 }
 export const themeOptions = [
-    {label:'Dark', value:darkTheme},
-    {label:'Blue', value:lightBlueTheme},
-    {label: "Fledging", value:Fledging},
-    {label : "Light" , value:light},
-    {label: 'Green' , value:green},
-    {label: "Pink" , value:pink},
-    {label: "Yellow" , value:yellow},
-    {label: "Violet" , value:violet},
-    {label: "Orange" , value:orange}
+    {label:'Dark',      value: darkTheme},
+    {label:'Blue',      value: lightBlueTheme},
+    {label: "Fledging", value: Fledging},
+    {label : "Light" ,  value: light},
+    {label: 'Green' ,   value: green},
+    {label: "Pink" ,    value: pink},
+    {label: "Yellow" ,  value: yellow},
+    {label: "Violet" ,  value: violet},
+    {label: "Orange" ,  value: orange}
 ]

@@ -15,11 +15,12 @@ const Statistics = ({wpm,
 
         let timeSet = new Set();
         let updatedgraphData = graphData.filter((i)=>{
-            if(!timeSet.has(i[0]))
-            {
+            if(!timeSet.has(i[0])){
+                
                 timeSet.add(i[0]);
                 return i;
             }
+            return
         })
 
         const pushDataToDB = ()=>{
@@ -28,7 +29,7 @@ const Statistics = ({wpm,
             {
                 toast.error('Invalid Test', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -79,7 +80,7 @@ const Statistics = ({wpm,
             } else {
                 toast.warning('Login to save results', {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -112,7 +113,7 @@ const Statistics = ({wpm,
             </div>
         </div>
         <div className="stats-right">
-            {/* <Graph graphData={updatedGraphData}/> */}
+
             <Graph graphData={updatedgraphData}/>
         </div>
       

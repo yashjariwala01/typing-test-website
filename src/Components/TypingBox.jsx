@@ -5,6 +5,7 @@ import { generate } from 'random-words'
 import Statistics from './Statistics';
 import { Button } from '@mui/material';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
+// import Practice from './Practice';
 
 let randomWords = generate(50);
 
@@ -35,7 +36,7 @@ const TypingBox = () => {
       setintervalId(intervalId);
       function timer(){
         setCountDown(updatedCountDown =>{
-        
+
           setCorrectChars(correctChars=>{
             setGraphData(graphData=>{
               return [...graphData, [
@@ -81,7 +82,11 @@ const TypingBox = () => {
         setTestStarted(true);
       }
 
-      const allCurrChars = wordsSpanRef[currWordIndex].current.childNodes;
+      const allCurrChars = wordsSpanRef[currWordIndex].current?.childNodes;
+      
+      if (!allCurrChars) {
+        return;
+      }
       
       //space functionality=> jump to new word(32 is key code for space key in keyboard)
         if(e.keyCode===32){
@@ -94,8 +99,6 @@ const TypingBox = () => {
             setCorrectWords(correctWords+1);
           }
 
-
-          console.log(correctCharsInWord);
           console.log(correctWords);
           //logic for space
           if(allCurrChars.length <= currCharIndex){
@@ -124,7 +127,7 @@ const TypingBox = () => {
 
               //if extra keywords added needed to be removed
               if(allCurrChars[currCharIndex-1].className.includes('extra')){
-                // console.log("yash jariwala");
+                
                 allCurrChars[currCharIndex-1].remove();
                 allCurrChars[currCharIndex-2].className += ' current-right'
               }else{
@@ -141,7 +144,7 @@ const TypingBox = () => {
           }
           return;
         }
-
+        //extra characters 
         if(currCharIndex === allCurrChars.length){
 
           let newSpan = document.createElement('span');
@@ -203,6 +206,7 @@ const TypingBox = () => {
 
   return (
     <div >
+      {/* <Practice/> */}
    {testEnded ? (<Statistics wpm={calculateWPM()}
     accuracy={calculateAccuracy()}
     correctChars={correctChars}
@@ -210,15 +214,15 @@ const TypingBox = () => {
     missedChars={missedChars}
     extraChars={extraChars}
     graphData={graphData}
-    />): (<div className='type-box' >
+    />): (<div onClick={focusInput} className='type-box' >
         <UpperMenu countDown={countDown}/>
       <div className="words">
         {
           wordsArray.map((word, index)=>( 
-            <span className="word" ref={wordsSpanRef[index]}>
+            <span className="word" key={index} ref={wordsSpanRef[index]}>
               {
-                word.split('').map(char=>(
-                  <span >{char}</span>
+                word.split('').map((char,index)=>(
+                  <span key={index}>{char}</span>
                 ))
               }
             </span>

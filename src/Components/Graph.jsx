@@ -27,6 +27,9 @@ const Graph = ({graphData}) => {
   return (
     <>
         <Line
+        options={{
+            responsive: true,
+          }}
             data={
                 {
                     labels :  graphData.map(i=>i[0]), //x-axis
@@ -35,7 +38,8 @@ const Graph = ({graphData}) => {
                                     data : graphData.map(i=>i[1]),
                                     label : 'WPM',
                                     borderColor : theme.textColor
-                                }
+                                },
+                               
                             ]
                 }
             }

@@ -1,34 +1,13 @@
-// import React from 'react'
-// import AccountCircle from './AccountCircle'
-
-// const Header = () => {
-  
-//   return (
-//     <div className="header">
-//         <div className="logo">
-//           logo
-//         </div>
-//         <div className="user-icon">
-//             <AccountCircle/>
-//         </div>
-//     </div>
-//   )
-// }
-
-// export default Header
-
 import React from 'react'
 import AccountCircle from './AccountCircle';
-// import logo from "../logo3.png";
-import { redirect, useNavigate } from 'react-router-dom';
+import logo from "../logo_typing_test_website.jpeg";
 
 const Header = () => {
   
   return (
     <div className="header">
         <div className="logo">
-            {/* <img src={logo} alt="logo" style={{width : "90px" , height: "40px", cursor:"pointer"}} /> */}
-            logo
+            <img src={logo} alt="logo" className='logo-img' style={{width : "85px" , height: "100px", cursor:"pointer"}} />
         </div>
         <div className="user-icon">
             <AccountCircle/>

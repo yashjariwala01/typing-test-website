@@ -5,13 +5,14 @@ import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 import {useTheme} from '../Context/ThemeContext'
 import GoogleButton from 'react-google-button'
-import {signInWithPopup, GoogleAuthProvider} from 'firebase/auth';
+import { GoogleAuthProvider} from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 import { toast } from 'react-toastify'
 import errorMapping from '../Utils/errorMapping';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
+import shadows from '@mui/material/styles/shadows';
 
 
 const AccountCircle = () => {
@@ -22,6 +23,7 @@ const AccountCircle = () => {
   const {theme} = useTheme();
   const googleProvider = new GoogleAuthProvider();
 
+  
   const handleModalOpen =()=>{
     if(user){
         navigate('/user');
@@ -34,6 +36,7 @@ const AccountCircle = () => {
   }
   const handleValueChange=(e,v)=>{
     setValue(v)
+    console.log(v);
   }
 
   const logOut = ()=>{
@@ -64,7 +67,7 @@ const AccountCircle = () => {
 
 
   const handleGoogleSignIn = ()=>{
-    signInWithPopup(auth,googleProvider).then((res)=>{
+    auth.signInWithPopup(googleProvider).then((res)=>{
         toast.success(' Google Sign-in Successful!', {
             position: "top-right",
             autoClose: 5000,
@@ -94,7 +97,7 @@ const AccountCircle = () => {
       <AccountCircleIcon onClick={handleModalOpen}  style={{transform: 'scale(1.5)', cursor:'pointer'}}/>
       {user && <LogoutIcon onClick={logOut} style={{transform: 'scale(1.5)', cursor:'pointer'}} />}
       <Modal 
-      open={open}
+      open={open} 
       onClose={handleModalclose}
       style={{
         display : 'flex',
@@ -102,13 +105,13 @@ const AccountCircle = () => {
         alignItems : 'center'
      }}
       >
-        <div style={{width:"400px", textAlign: 'center'}}>
+        <div style={{width:"400px", textAlign: 'center', border:'1px solid black' , shadows}}>
           <AppBar position='static' style={{background:'transparent'}}>
             <Tabs 
             value={value}
             onChange={handleValueChange}
             variant='fullWidth'>
-              <Tab label='login'  style={{color : theme.textColor}}></Tab>
+              <Tab label='login'  style={{color : 'white'}}></Tab>
               <Tab label='signup' style={{color : 'white'}}></Tab>
             </Tabs>
           </AppBar>

@@ -13,9 +13,10 @@ const UserPage = () => {
   const [dataLoading, setdataLoading] = useState(true);
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
-
   const fetchUserData = ()=>{
+
     const resultsRef = db.collection("Results");
+    console.log(resultsRef)
     const {uid} = auth.currentUser;
     let tempData = [];
     let tempGraphData = [];
@@ -24,6 +25,7 @@ const UserPage = () => {
     .orderBy('timestamp','desc')
     .get()
     .then((snapshot)=>{
+      console.log(snapshot);
       snapshot.docs.forEach((doc)=>{
        
         tempData.push({...doc.data()})

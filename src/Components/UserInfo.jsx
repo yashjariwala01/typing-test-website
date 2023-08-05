@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebaseConfig';
 
 const UserInfo = ({data}) => {
-    const [user] = useAuthState(auth)
+    const [user] = useAuthState(auth);
     const wpmSum = data.reduce((acc,elem)=>{
           return acc + elem.wpm;
     },0);

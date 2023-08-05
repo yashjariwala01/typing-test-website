@@ -25,7 +25,7 @@ const SignUpForm = ({handleClose}) => {
             progress: undefined,
             theme: "dark",
             });
-    alert('fill all details')
+    
         return;
     }
     if(password!==confirmPassword){
@@ -64,7 +64,6 @@ const SignUpForm = ({handleClose}) => {
             progress: undefined,
             theme: "dark",
             });
-        alert('error');
     })
 }
 

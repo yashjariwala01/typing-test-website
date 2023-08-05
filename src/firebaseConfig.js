@@ -11,7 +11,6 @@ const firebaseConfig = {
     storageBucket: "delta-typing-test.appspot.com",
     messagingSenderId: "474897928170",
     appId: "1:474897928170:web:82001e4aa15fca972a6c93",
-    // measurementId: "G-XQJ3BYHK39"
   };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);

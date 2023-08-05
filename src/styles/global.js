@@ -31,7 +31,7 @@ body{
     flex-direction: column;
     gap: 1rem;
     max-width: 1000px;
-    height:200px;
+    height:300px;
     margin-right:auto;
     margin-left:auto;
     margin-top : 1.5rem;
@@ -164,7 +164,12 @@ body{
     margin-left : auto;
     margin-right : auto;
     justify-content : space-between;
-
+    position: relative;
+    
+}
+.logo-img{
+    position:absolute;
+    top:-2.2rem;
 }
 .buttons-parent{
     width: 30%;
@@ -202,10 +207,12 @@ body{
     width : 60%;
     padding : 1rem;
     margin-top : 1rem;
+    background-color: ${({theme})=> theme.textColor};;
 }
 .picture{
     width : 40%;
 }
+
 .total-tests{
     width : 50%;
     display : flex;
